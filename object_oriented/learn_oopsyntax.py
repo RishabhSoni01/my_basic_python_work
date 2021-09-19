@@ -16,6 +16,10 @@ class employee:
 @classmethod
 def set_raise_amount(cls,amount):
     cls.raise_amount=amount
+@classmethod 
+def from_string(cls,emp_str):
+    first,last,pay=emp_str.string('-')
+    return cls(first,last,pay)
 emp1=employee('Rishabh','soni',5000000)
 emp2=employee('UMANG','BHALLA',6000000)
 emp_str_1='john-doe-70000'
@@ -23,7 +27,7 @@ emp_str_2='steve-smith-30000'
 emp_str_3='virat-kohli-50000'
 
 first, last,pay=emp_str_1.split('-')
-new_emp1=employee(first,last,pay)
+new_emp1=employee.from_string(emp_str_1)
 print(new_emp1.email)
 print(new_emp1.pay)
 #print(emp1.email)
